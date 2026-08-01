@@ -56,6 +56,22 @@ pip install -e .
 
 `trtexec` ships with JetPack at `/usr/src/tensorrt/bin/trtexec` and is found automatically. For the framework-overhead comparison you also need `onnxruntime-gpu` built for your JetPack — if it's missing, the ladder still runs and the report just omits that section.
 
+### No Jetson handy? Verify the ONNX Runtime side on any machine
+
+The TensorRT ladder needs `trtexec`, so it needs a Jetson (or another CUDA box
+with TensorRT). But the ONNX Runtime comparison code — the part that measures
+framework overhead — is plain Python and runs anywhere:
+
+```bash
+pip install onnx onnxruntime
+python examples/make_toy_model.py         # writes a tiny synthetic ONNX model
+python tests/test_ortbench_smoke.py       # real timing, not illustrative numbers
+```
+
+This doesn't tell you anything about your Jetson's TensorRT performance — it's
+a smoke test that the ORT-comparison code path works, runnable before you have
+hardware in front of you.
+
 ---
 
 ## Usage
