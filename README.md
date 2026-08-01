@@ -48,7 +48,13 @@ Note the engine size too — pure INT8 came out **twice as large as FP32**, beca
 
 ## Install
 
-On the Jetson:
+On the Jetson, straight from this repo (no PyPI release yet):
+
+```bash
+pip install "git+https://github.com/latencybudget/trt-ladder.git"
+```
+
+Or from a local clone:
 
 ```bash
 pip install -e .
