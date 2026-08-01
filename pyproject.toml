@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trt-ladder"
+version = "0.1.0"
+description = "TensorRT precision ladder profiler for NVIDIA Jetson: separates GPU compute from framework overhead."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+keywords = ["tensorrt", "jetson", "onnx", "quantization", "int8", "benchmark", "edge-ai"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: System :: Benchmark",
+]
+dependencies = ["numpy>=1.19"]
+
+[project.optional-dependencies]
+# Enables the framework-overhead comparison. Pin to the wheel that matches your
+# JetPack: onnxruntime-gpu is built per-JetPack on Jetson.
+ort = ["onnxruntime-gpu>=1.12"]
+
+[project.scripts]
+trt-ladder = "trt_ladder.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["trt_ladder*"]

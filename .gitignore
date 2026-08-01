@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# benchmark artefacts
+trt_ladder_out/
+*.engine
+*.trt
+*.log
+
+.venv/
+venv/
+.vscode/
+.idea/
+
+# working document, not for publication
+GO-TO-MARKET.md
+IDENTITY.md
+UPWORK-PROFILE.md
+YOUR-STEPS.md
+FORUM-DRAFTS.md
